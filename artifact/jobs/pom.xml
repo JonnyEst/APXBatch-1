@@ -12,5 +12,7 @@
 	<version>0.0.0</version>
 	<packaging>pom</packaging>
 	<name>JOBS-apx-batch-copqrsmartsv-job-3</name>
-	<modules/>
+	<modules>
+		<module>CPQRJ050-01-CO</module>
+	</modules>
 </project>
