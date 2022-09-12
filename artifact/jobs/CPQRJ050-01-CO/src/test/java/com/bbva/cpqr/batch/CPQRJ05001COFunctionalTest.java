@@ -17,9 +17,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * Test for batch process CPQRJ050-01-CO
  */
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(locations={"classpath:/META-INF/spring/batch/beans/CPQRJ050-01-CO-beans.xml","classpath:/META-INF/spring/batch/jobs/jobs-CPQRJ050-01-CO-context.xml","classpath:/META-INF/spring/jobs-CPQRJ050-01-CO-runner-context.xml"})
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations={"classpath:/META-INF/spring/batch/beans/CPQRJ050-01-CO-beans.xml","classpath:/META-INF/spring/batch/jobs/jobs-CPQRJ050-01-CO-context.xml","classpath:/META-INF/spring/jobs-CPQRJ050-01-CO-runner-context.xml"})
 public class CPQRJ05001COFunctionalTest{
+
+
 
 	@Autowired
 	private JobLauncherTestUtils jobLauncherTestUtils;
@@ -27,9 +29,20 @@ public class CPQRJ05001COFunctionalTest{
 
 	@Test
 	public void testLaunchJob() throws Exception {
+
+		//ADD PARAMETERS JOBS IN THIS CASE IS THE LIBRARIES
+
+
 		//TODO implements job launch test
 		//Without parameters (use this implementation if job not need parameters)
 		//final JobExecution jobExecution = jobLauncherTestUtils.launchJob();
+		final HashMap<String, JobParameter> parameters = new HashMap<String, JobParameter>();
+
+		final JobParameter pathInJobParameter = new JobParameter("src/test/resources/datsal");
+		parameters.put("inPath", pathInJobParameter);
+
+		final JobParameters jobParameters = new JobParameters(parameters);
+		final JobExecution jobExecution = jobLauncherTestUtils.launchJob(jobParameters);
 		
 		//With parameters (use this implementation if job needs parameters comment first implementation) 
 		/*********************** Parameters Definition ***********************/
@@ -42,6 +55,6 @@ public class CPQRJ05001COFunctionalTest{
 //		final JobExecution jobExecution = jobLauncherTestUtils.launchJob(jobParameters);
 		
 		//TODO implements job launch test Assert's
-		//Assert.assertTrue(jobExecution.getExitStatus().equals(ExitStatus.COMPLETED));
+		Assert.assertTrue(jobExecution.getExitStatus().equals(ExitStatus.COMPLETED));
 	}
 }

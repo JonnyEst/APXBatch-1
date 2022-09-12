@@ -5,7 +5,6 @@ import java.util.Date;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
  * The DatosPersona class...
@@ -13,6 +12,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class DatosPersona implements Serializable  {
 	private static final long serialVersionUID = 2931699728946643245L;
 
+	public static final String cabecera= ("nombre"+","+"Apellido"+","+"edad"+","+"telefono"+","+"cedula"+","+"fecha nacimiento");
 	/* Attributes section for the DTO */
 
 	/**
@@ -92,6 +92,8 @@ public class DatosPersona implements Serializable  {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+
+
 	/**
 	 * Indicates whether some other object is "equal to" this one.
 	 */
@@ -134,5 +136,14 @@ public class DatosPersona implements Serializable  {
 				", cedula='" + cedula + '\'' +
 				", fechaNacimiento=" + fechaNacimiento +
 				'}';
+	}
+
+	public String imprimirComas() {
+		return name + ',' +
+			   surname + ',' +
+			   edad + ',' +
+			   telefono + ',' +
+			   cedula + ',' +
+			   fechaNacimiento;
 	}
 }

@@ -193,6 +193,18 @@
 			<version>0.0.0</version>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.bbva.cpqr</groupId>
+            <artifactId>CPQRR050</artifactId>
+            <version>0.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			<groupId>com.bbva.cpqr</groupId>
+			<artifactId>CPQRR050</artifactId>
+			<version>0.0.0</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

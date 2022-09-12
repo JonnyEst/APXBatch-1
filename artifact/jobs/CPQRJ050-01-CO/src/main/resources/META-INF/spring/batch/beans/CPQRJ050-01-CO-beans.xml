@@ -33,6 +33,8 @@
 	<bean class="com.bbva.cpqr.batch.process.Write" id="Write" scope="step">
 
 		<property name="cpqrR050" ref="cpqrR050"/>
+		<property name="inPath" 		 		        value="#{jobParameters['inPath']}" />
+
 	</bean>
 
 </beans>
